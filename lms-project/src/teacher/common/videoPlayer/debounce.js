@@ -1,0 +1,13 @@
+// Create a new file: src/components/EnhancedVideoPlayer/utils/debounce.js
+
+export const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
